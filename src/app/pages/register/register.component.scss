@@ -7,8 +7,12 @@
 .form {
     width: 75%;
     margin: 0 auto;
-    &__required {
-        margin-top: -12px;
+    &_required {
+        min-height: 20px;
+        font-size: small;
+    }
+    &_passwordrequired {
+        min-height: 60px;
         font-size: small;
     }
 }
@@ -16,14 +20,14 @@
 .buttons {
     text-align: center;
     margin-top: 30px;
-    &__login {
+    &_login {
         color: #fff;
         background-color: #b99d6b;
         border-color: #b99d6b;
         width: 30%;
     }
     
-    &__register {
+    &_register {
         color: #fff;
         background-color: black;
         border-color: black;
@@ -31,7 +35,7 @@
         margin-left: 30px;
     }
 
-    &__span {
+    &_span {
         font-family: "BasisGrotesque-Regular-Pro";
         font-weight: inherit;
         color: black;

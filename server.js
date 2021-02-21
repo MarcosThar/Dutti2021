@@ -37,7 +37,7 @@ const saveUser = (user, res) => {
 
         if (err) throw err;
         console.log('Saved!');
-        res.status(201).send(user)
+        res.status(201).send({user, msg: 'User is valid' })
     })
 
 }
@@ -50,7 +50,7 @@ const userIsValid = (user) =>
 
 const callbackRegisterUser = (user, res) => {
     if (userIsRegistered(user)) {
-        res.status(409).send({ error: 'User is already registered' })
+        res.status(409).send({ msg: 'User is already registered' })
     } else {
         saveUser(user, res);
     }
@@ -60,7 +60,7 @@ const callbackLoginUser = (user, res) => {
     if (!userIsValid(user)) {
         res.status(200).send({ msg: 'User is valid' })
     } else {
-        res.status(401).send({ error: 'User or password are incorrect' })
+        res.status(401).send({ msg: 'User or password are incorrect' })
     }
 }
 
