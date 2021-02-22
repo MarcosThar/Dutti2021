@@ -10,32 +10,25 @@ declare var $: any;
 export class ShipsDetailsComponent implements OnInit {
 
   @Input() dataList: any;
-  config: any;
+  config = {
+    itemsPerPage: 10,
+    currentPage: 1,
+  };
   shipId: string = '';
   url: string = '';
   // Modal
   titleDetails: string = '';
   modelDetails: string = '';
-  starship_class: string = '';
+  starshipClass: string = '';
 
-  constructor() { 
+  constructor() {
+  }
+
+  ngOnInit(): void {
   }
   
-  ngOnInit(): void {
-      this.config = {
-        itemsPerPage: 5,
-        currentPage: 1,
-        totalItems: this.dataList.length
-      };
-  }
 
-  getStarshipId(url) {
-    this.shipId = url.slice(0, -1)
-    const urlImage = `${this.shipId}.jpg`
-    return urlImage !== "";
-  }
-
-  pageChanged(event){
+  pageChanged(event) {
     this.config.currentPage = event;
   }
 
@@ -43,7 +36,12 @@ export class ShipsDetailsComponent implements OnInit {
     $("#exampleModal").modal('show');
     this.titleDetails = details.name;
     this.modelDetails = details.model;
-    this.starship_class = details.starship_class
+    this.starshipClass = details.starshipClass
   }
+
+  getStarShipId = (url) => 
+      `https://starwars-visualguide.com/assets/img/starships/${
+        url.split('/').splice(-2, 1)
+      }.jpg`
 
 }

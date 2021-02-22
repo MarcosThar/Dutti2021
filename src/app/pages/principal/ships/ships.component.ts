@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ShipsService } from 'src/app/services/ships/ships.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { requestGetShips } from 'src/app/store/actions/ships.actions';
+import { selectShips } from 'src/app/store/selectors/ships.selectors';
 
 @Component({
   selector: 'app-ships',
@@ -8,14 +11,12 @@ import { ShipsService } from 'src/app/services/ships/ships.service';
 })
 export class ShipsComponent implements OnInit {
 
-  public dataList: any = [];
+  public dataList: Observable<any> = this.store.select(selectShips);
 
-  constructor( private shipsService: ShipsService) {}
+  constructor( private store: Store) {}
 
   ngOnInit(): void {
-    this.shipsService.getShips().subscribe((ships) => {
-      this.dataList = ships;
-      console.log('SHIPS -->', this.dataList.results)
-    })
+    this.store.dispatch(requestGetShips({page:2}))
+
   }
 }

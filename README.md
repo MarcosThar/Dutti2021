@@ -34,5 +34,10 @@ Navigate to `http://localhost:4200/`.
 
 
 # Notas del desarrollador:
-
+- Lo ideal cuando implementamos el patron redux es que todos los servicios sean llamados desde los efectos del store para conseguir que todos los componentes tengan una unica fuente del estado de la aplicacion, el store de redux
+- Revisar HTML
+- crear GUARD
+- Aplicar i18n
+- Faltan interfaces para login, store, ships
+- Eliminar jQuery de ships.component y revisar si esta en algun sitio mas
 
