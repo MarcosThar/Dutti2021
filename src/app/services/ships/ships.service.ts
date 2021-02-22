@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ShipsService {
 
-  url: string = 'https://swapi.dev/api/starships/'
+  url: string = 'http://swapi.dev/api/starships/?page='
   headerDict = {
     'Authorization': 'none',
     'Access-Control-Allow-Origin': '*'
@@ -18,7 +18,7 @@ export class ShipsService {
   
   constructor( private http: HttpClient ) {}
 
-  getShips(): Observable<any>{
-    return this.http.get(this.url)
+  getShips(page?): Observable<any>{
+    return this.http.get(`${this.url}${page || 1}`)
   }
 }
