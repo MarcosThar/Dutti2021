@@ -2,14 +2,15 @@
     border: none !important;
 }
 
-.hr-line {
-    margin-top: 0px;
-}
 .form {
     width: 75%;
     margin: 0 auto;
     &__required {
         margin-top: -12px;
+        font-size: small;
+    }
+    &_passwordrequired {
+        min-height: 60px;
         font-size: small;
     }
 }

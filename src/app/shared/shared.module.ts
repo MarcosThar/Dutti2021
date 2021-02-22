@@ -18,7 +18,7 @@ import { ErrorsInterceptor } from '../services/interceptors/errors.interceptor';
 })
 export class SharedModule { }
 
-
+// TODO Implementar interceptor solo en los modulos de login y registro o eliminar ete modulo
 @NgModule({
   imports: [
     FormsModule,
