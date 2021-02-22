@@ -6,7 +6,7 @@ import { createAction, props } from '@ngrx/store';
 
 export const requestGetShips = createAction(
   REQUEST_GET_SHIPS,
-  props<{ page:number }>()
+  props<{ page?:number }>()
 );
  
 export const setShips = createAction(
