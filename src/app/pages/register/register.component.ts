@@ -22,7 +22,10 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.initForm();
+  }
 
+  initForm(): void {
     this.registerForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(3)]],
       lastName: ['', [Validators.required, Validators.minLength(3)]],
@@ -38,7 +41,6 @@ export class RegisterComponent implements OnInit {
 
     })
   }
-
   registerUser(): void {
     this.dataLoading = true;
     const userData = this.registerForm.value;

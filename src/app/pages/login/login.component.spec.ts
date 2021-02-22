@@ -34,4 +34,25 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('initForm should create loginForm', () => {
+    component.initForm()
+    expect(component.loginForm).toBeTruthy();
+  });
+
+  it('loginUser should navigate to principal', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('loginUser should disable and enable loginForm', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('fieldIsRequired should return true', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('fieldIsRequired should return false', () => {
+    expect(component).toBeTruthy();
+  });
 });

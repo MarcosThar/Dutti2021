@@ -27,19 +27,25 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loginForm = this.fb.group({
-      username: [ '', [Validators.required]],
-      password: [ '', [Validators.required]]
-    })
+    this.initForm()
   }
+
+  initForm(): void {
+    this.loginForm = this.fb.group({
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]]
+    })
+
+  }
+
   loginUser(): void {
     const userLogin = this.loginForm.value;
     this.loginForm.disable();
     this.dataLoading = true;
     this.authService.login(userLogin).subscribe(
-      ()=>this.router.navigate(['principal']),
-      ()=>{},
-      ()=>{
+      () => this.router.navigate(['principal']),
+      () => { },
+      () => {
         this.dataLoading = false;
         this.loginForm.enable();
       }
