@@ -1,4 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { PaginationControlsComponent } from 'ngx-pagination';
+import { requestGetShips } from 'src/app/store/actions/ships.actions';
 declare var $: any;
 
 
@@ -8,11 +11,12 @@ declare var $: any;
   styleUrls: ['./ships-details.component.scss']
 })
 export class ShipsDetailsComponent implements OnInit {
-
+  @ViewChild(PaginationControlsComponent) paginator: PaginationControlsComponent
   @Input() dataList: any;
   config = {
+    id: 'list',
     itemsPerPage: 10,
-    currentPage: 1,
+    currentPage: 1
   };
   shipId: string = '';
   url: string = '';
@@ -21,15 +25,18 @@ export class ShipsDetailsComponent implements OnInit {
   modelDetails: string = '';
   starshipClass: string = '';
 
-  constructor() {
+  constructor(
+    private store: Store<any>
+  ) {
   }
 
   ngOnInit(): void {
   }
-  
 
-  pageChanged(event) {
-    this.config.currentPage = event;
+
+  pageChanged(page) {
+    this.store.dispatch(requestGetShips({ page }));
+    this.config.currentPage = page;
   }
 
   openDetails(details) {
@@ -39,9 +46,12 @@ export class ShipsDetailsComponent implements OnInit {
     this.starshipClass = details.starshipClass
   }
 
-  getStarShipId = (url) => 
-      `https://starwars-visualguide.com/assets/img/starships/${
-        url.split('/').splice(-2, 1)
-      }.jpg`
+  getStarShipId = (url) =>
+    `https://starwars-visualguide.com/assets/img/starships/${url.split('/').splice(-2, 1)
+    }.jpg`
 
+  getPaginatorConfig = (dataLis) => ({
+    ...this.config,
+    totalItems: dataLis.count
+  })
 }
