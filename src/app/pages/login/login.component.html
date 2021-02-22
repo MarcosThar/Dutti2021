@@ -8,7 +8,8 @@
                 class="form-control"
                 placeholder="Username"
                 formControlName="username"/>
-            <div class="input-group-append form__required">
+                <hr class="hr-line">
+            <div class="form_required">
                 <span class="colorInvalid" *ngIf="fieldIsRequired('username')">
                     <i>Username is required</i>
                 </span>
@@ -20,7 +21,8 @@
             class="form-control"
             placeholder="Password"
             formControlName="password"/>
-            <div class="input-group-append form__required" >
+            <hr class="hr-line">
+            <div class="form_required" >
                 <span class="colorInvalid" *ngIf="fieldIsRequired('password')">
                     <i>Password is required</i>
                 </span>
@@ -28,9 +30,9 @@
         </div>
         <div class="buttons">
             <img *ngIf="dataLoading" src="/assets/img/spinner.gif" />
-            <button type="submit" [disabled]="loginForm.invalid" class="btn buttons__login">Iniciar sesión</button>
+            <button type="submit" [disabled]="loginForm.invalid" class="btn buttons_login">Iniciar sesión</button>
             <div class="text-center">
-                <span class="buttons_span">¿ Aún no tienes una cuenta?</span> <a routerLink="/register" class="btn buttons__link">Regístrate</a>
+                <span class="buttons_span">¿ Aún no tienes una cuenta?</span> <a routerLink="/register" class="btn buttons_link">Regístrate</a>
             </div>
         </div>
     </form>

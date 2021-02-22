@@ -40,8 +40,8 @@ export class LoginComponent implements OnInit {
       ()=>this.router.navigate(['principal']),
       ()=>{},
       ()=>{
+        this.dataLoading = false;
         this.loginForm.enable();
-        this.dataLoading = true;
       }
     )
   }
