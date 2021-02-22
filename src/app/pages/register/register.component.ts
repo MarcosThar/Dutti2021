@@ -46,13 +46,13 @@ export class RegisterComponent implements OnInit {
     const userData = this.registerForm.value;
     this.registerForm.disable()
     this.authService.register(userData).subscribe(
-      () => this.router.navigate(['']),
-      () => { },
-      () => {
+      () => this.router.navigate(['']))
+      .add(() => {
         this.dataLoading = false;
-        this.registerForm.enable()
-      })
+        this.registerForm.enable();
+      }
 
+      )
   }
 
   fieldIsTouched = (field: string): boolean => fieldIsTouched(this.registerForm, field);

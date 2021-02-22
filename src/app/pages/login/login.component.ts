@@ -44,12 +44,10 @@ export class LoginComponent implements OnInit {
     this.dataLoading = true;
     this.authService.login(userLogin).subscribe(
       () => this.router.navigate(['principal']),
-      () => { },
-      () => {
-        this.dataLoading = false;
-        this.loginForm.enable();
-      }
-    )
+    ).add(() => {
+      this.dataLoading = false;
+      this.loginForm.enable();
+    })
   }
 
   fieldIsRequired = (field: string): boolean => fieldIsRequired(this.loginForm, field)
