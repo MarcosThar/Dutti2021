@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder, AbstractControl } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { fieldIsInvalid, fieldIsRequired, fieldIsTouched } from 'src/app/shared/utils';
 
 
 @Component({
@@ -43,7 +44,7 @@ export class RegisterComponent implements OnInit {
     const userData = this.registerForm.value;
     this.registerForm.disable()
     this.authService.register(userData).subscribe(
-      () => this.userRegistered(),
+      () => this.router.navigate(['']),
       () => { },
       () => {
         this.dataLoading = false;
@@ -51,18 +52,9 @@ export class RegisterComponent implements OnInit {
       })
 
   }
-  userRegistered(): void {
-    this.router.navigate([''])
-  }
 
-  getField = (field: string): AbstractControl => this.registerForm.get(field);
-
-  fieldIsTouched = (field: string): boolean => this.getField(field).touched;
-
-  fieldIsInvalid = (field: string): boolean =>
-    this.fieldIsTouched(field) && this.getField(field).invalid && this.getField(field).value;
-
-  fieldIsRequired = (field: string): boolean =>
-    this.fieldIsTouched(field) && !this.getField(field).value;
+  fieldIsTouched = (field: string): boolean => fieldIsTouched(this.registerForm, field);
+  fieldIsInvalid = (field: string): boolean => fieldIsInvalid(this.registerForm, field)
+  fieldIsRequired = (field: string): boolean => fieldIsRequired(this.registerForm, field)
 
 }
