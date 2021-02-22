@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       password: [ '', [Validators.required]]
     })
   }
-  loginUser() {
+  loginUser(): void {
     const userLogin = this.loginForm.value;
     this.loginForm.disable();
     this.dataLoading = true;
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
     )
   }
 
-  fieldIsRequired=(field)=>fieldIsRequired(this.loginForm, field)
+  fieldIsRequired = (field: string): boolean => fieldIsRequired(this.loginForm, field)
 
 }
 

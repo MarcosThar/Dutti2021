@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 // pages
 import { AppComponent } from './app.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
+import { StoreModule } from '@ngrx/store';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { PrincipalComponent } from './pages/principal/principal.component';
     BrowserAnimationsModule,
     SharedModule,
     AppRoutingModule,
-    PrincipalModule
+    PrincipalModule,
+    StoreModule.forRoot({}, {})
   ],
   providers: [
     {
