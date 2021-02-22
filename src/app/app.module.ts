@@ -9,7 +9,7 @@ import { PrincipalModule } from './pages/principal/principal.module';
 import { ToastrService } from 'ngx-toastr';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ErrorsInterceptor } from './services/interceptors/errors.interceptor';
+import { ErrorsInterceptor } from './interceptors/errors.interceptor';
 
 import { appStore } from './store';
 import { ShipsEffects } from './store/effects/ships.effects';
