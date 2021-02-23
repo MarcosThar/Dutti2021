@@ -4,6 +4,7 @@ import { ShipsComponent } from './ships/ships.component';
 import { PageOneComponent } from './page-one/page-one.component';
 import { PageTwoComponent } from './page-two/page-two.component';
 import { PrincipalComponent } from './principal.component';
+import { PATHS_FRONT } from 'src/app/constants/pathsFront';
 
 const routes: Routes = [
   {
@@ -12,19 +13,19 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'ships',
+        redirectTo: PATHS_FRONT.ships,
         pathMatch: 'full'
       },
       {
-        path: 'ships',
+        path: PATHS_FRONT.ships,
         component: ShipsComponent
       },
       {
-        path: 'pageOne',
+        path: PATHS_FRONT.pageOne,
         component: PageOneComponent
       },
       {
-        path: 'pageTwo',
+        path: PATHS_FRONT.pageTwo,
         component: PageTwoComponent
       },
     ]

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PATHS_FRONT } from 'src/app/constants/pathsFront';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { fieldIsRequired } from 'src/app/shared/utils';
 
@@ -13,7 +14,7 @@ import usersList from 'src/assets/json/users.json';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  PATHS = PATHS_FRONT;
   loginForm: FormGroup;
   dataLoading: boolean = false;
   users: any = usersList;
@@ -43,7 +44,7 @@ export class LoginComponent implements OnInit {
     this.loginForm.disable();
     this.dataLoading = true;
     this.authService.login(userLogin).subscribe(
-      () => this.router.navigate(['principal']),
+      () => this.router.navigate([this.PATHS.principal]),
     ).add(() => {
       this.dataLoading = false;
       this.loginForm.enable();
