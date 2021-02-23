@@ -3,7 +3,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/interfaces/user';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { fieldIsInvalid, fieldIsRequired, fieldIsTouched } from 'src/app/shared/utils';
+import { fieldIsInvalid, fieldIsRequired } from 'src/app/shared/utils';
 
 
 @Component({
@@ -56,7 +56,6 @@ export class RegisterComponent implements OnInit {
       )
   }
 
-  fieldIsTouched = (field: string): boolean => fieldIsTouched(this.registerForm, field);
   fieldIsInvalid = (field: string): boolean => fieldIsInvalid(this.registerForm, field)
   fieldIsRequired = (field: string): boolean => fieldIsRequired(this.registerForm, field)
 

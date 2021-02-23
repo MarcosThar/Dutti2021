@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config=proxy.config.json",
+    "api-server": "node ./server.js",
     "start-with-server": " concurrently \"node ./server.js\" \"ng serve --proxy-config=proxy.config.json\"",
     "build": "ng build",
     "test": "jest --detectOpenHandles",
