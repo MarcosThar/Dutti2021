@@ -2,7 +2,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ErrorsInterceptor } from '../services/interceptors/errors.interceptor';
+import { ErrorsInterceptor } from '../interceptors/errors.interceptor';
 
 @NgModule({
   imports: [
