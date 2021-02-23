@@ -22,7 +22,10 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.initForm();
+  }
 
+  initForm(): void {
     this.registerForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(3)]],
       lastName: ['', [Validators.required, Validators.minLength(3)]],
@@ -38,19 +41,18 @@ export class RegisterComponent implements OnInit {
 
     })
   }
-
   registerUser(): void {
     this.dataLoading = true;
     const userData = this.registerForm.value;
     this.registerForm.disable()
     this.authService.register(userData).subscribe(
-      () => this.router.navigate(['']),
-      () => { },
-      () => {
+      () => this.router.navigate(['']))
+      .add(() => {
         this.dataLoading = false;
-        this.registerForm.enable()
-      })
+        this.registerForm.enable();
+      }
 
+      )
   }
 
   fieldIsTouched = (field: string): boolean => fieldIsTouched(this.registerForm, field);

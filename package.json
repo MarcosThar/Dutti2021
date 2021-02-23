@@ -6,8 +6,8 @@
     "start": "ng serve --proxy-config=proxy.config.json",
     "start-with-server": " concurrently \"node ./server.js\" \"ng serve --proxy-config=proxy.config.json\"",
     "build": "ng build",
-    "test": "jest",
-    "coverage": "jest --coverage",
+    "test": "jest --detectOpenHandles",
+    "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
     "lint": "ng lint",
     "e2e": "ng e2e"

@@ -1,21 +1,21 @@
 [
     {
-        "first_name": "Paco",
-        "last_name": "Ruiz",
+        "firstName": "Paco",
+        "lastName": "Ruiz",
         "username": "paco",
-        "password": "paco",
+        "password": "pacoO00",
         "email": "paco@paco.es"
     },
     {
-        "first_name": "Pepe",
-        "last_name": "Sanchez",
+        "firstName": "Pepe",
+        "lastName": "Sanchez",
         "username": "pepe",
         "password": "pepe",
         "email": "pepe@pepe.es"
     },
     {
-        "first_name": "lolo",
-        "last_name": "Garcia",
+        "firstName": "lolo",
+        "lastName": "Garcia",
         "username": "lolo",
         "password": "lolo",
         "email": "lolo@lolo.es"
