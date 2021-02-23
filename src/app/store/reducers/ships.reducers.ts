@@ -1,10 +1,11 @@
 import { createReducer, on } from '@ngrx/store';
+import { Ship } from 'src/app/interfaces/ship';
 import {
   setShips,
   cleanShips,
 } from '../actions/ships.actions';
 
-export const initialState = null;
+export const initialState:Ship[] = null;
 
 const _shipsReducer = createReducer(
   initialState,

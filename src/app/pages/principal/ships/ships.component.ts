@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ModalComponent } from 'src/app/components/modal/modal.component';
+import { Ship, ShipPage } from 'src/app/interfaces/ship';
 import { requestGetShips } from 'src/app/store/actions/ships.actions';
 import { selectShips } from 'src/app/store/selectors/ships.selectors';
 
@@ -19,7 +20,7 @@ export class ShipsComponent implements OnInit {
     itemsPerPage: 10,
     currentPage: 1
   };
-  details;
+  details: Ship;
   constructor( private store: Store) {}
 
   ngOnInit(): void {
@@ -27,21 +28,21 @@ export class ShipsComponent implements OnInit {
 
   }
   
-  pageChanged = (page) => {
+  pageChanged = (page: number): void => {
     this.store.dispatch(requestGetShips({ page }));
     this.config.currentPage = page;
   }
 
-  openDetails(details) {
+  openDetails(details: Ship): void {
     this.details = details
     this.modal.toggle(true)
   }
 
-  getStarShipId = (url) =>
+  getStarShipId = (url: string): string =>
     `https://starwars-visualguide.com/assets/img/starships/${url.split('/').splice(-2, 1)
     }.jpg`
 
-  getPaginatorConfig = (dataLis) => ({
+  getPaginatorConfig = (dataLis: ShipPage) => ({
     ...this.config,
     totalItems: dataLis.count
   })

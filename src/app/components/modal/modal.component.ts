@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-modal',
@@ -18,7 +18,7 @@ export class ModalComponent {
    * Método que setea el valor que se le pasa para indicar si el modal es visible o no
    *
    */
-  public toggle = (visible?: boolean) =>
+  public toggle = (visible?: boolean): boolean =>
     this.isVisible = visible !== undefined ? visible : !this.isVisible;
 
 }

@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { Ship } from 'src/app/interfaces/ship';
  const BASE_PATH = '@Ships/';
  export const REQUEST_GET_SHIPS = `${BASE_PATH}/REQUEST_GET`
  export const SET_SHIPS = `${BASE_PATH}/SET`
@@ -11,7 +12,7 @@ export const requestGetShips = createAction(
  
 export const setShips = createAction(
   SET_SHIPS,
-  props<{ ships:{} }>()
+  props<{ ships:Ship[] }>()
 );
  
 export const cleanShips = createAction(

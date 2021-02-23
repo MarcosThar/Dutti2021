@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { PaginationControlsComponent } from 'ngx-pagination';
+import { Ship } from 'src/app/interfaces/ship';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { PaginationControlsComponent } from 'ngx-pagination';
 })
 export class ShipsDetailsComponent implements OnInit {
   @ViewChild(PaginationControlsComponent) paginator: PaginationControlsComponent
-  @Input() shipDetails: any;
+  @Input() shipDetails: Ship;
 
   constructor(
   ) { }

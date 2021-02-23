@@ -5,30 +5,31 @@ import { AUTH_API } from 'src/app/constants/configAuthApi';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { User, UserLogin, ResponseAuth } from 'src/app/interfaces/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  user = null;
+  user: User = null;
   constructor(private http: HttpClient, private router: Router, private toastrService: ToastrService) {
     this.user = JSON.parse(localStorage.getItem('user'));
   }
 
-  login = (userData): Observable<any> =>
-    this.http.post(AUTH_API.LOGIN, userData).pipe(map(user => this.setAuthUser(user)))
+  login = (userData: UserLogin): Observable<User> =>
+    this.http.post<ResponseAuth>(AUTH_API.LOGIN, userData).pipe(
+      map((res: ResponseAuth) => this.setAuthUser(res.user)))
 
-  register = (userData): Observable<any> =>
-    this.http.post(AUTH_API.REGISTER, userData)
+  register = (userData: User): Observable<User> =>
+    this.http.post<User>(AUTH_API.REGISTER, userData)
 
-  setAuthUser = (user) => {
+  setAuthUser = (user:User): User => {
     localStorage.setItem('user', JSON.stringify(user))
-    localStorage.removeItem('user')
     this.user = user;
     return user
   }
 
-  logout = () => {
+  logout = (): void => {
     this.user = null
     localStorage.removeItem('user');
     this.router.navigate([''])
@@ -37,5 +38,5 @@ export class AuthService {
     );
   }
 
-  getAuthUser = () => this.user
+  getAuthUser = (): User => this.user
 }

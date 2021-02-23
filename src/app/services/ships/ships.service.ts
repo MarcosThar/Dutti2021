@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
+import { ShipPage } from 'src/app/interfaces/ship';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class ShipsService {
   
   constructor( private http: HttpClient ) {}
 
-  getShips(page?): Observable<any>{
-    return this.http.get(`${this.url}${page || 1}`)
+  getShips(page?: number): Observable<ShipPage>{
+    return this.http.get<ShipPage>(`${this.url}${page || 1}`)
   }
 }

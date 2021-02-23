@@ -2,11 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PATHS_FRONT } from 'src/app/constants/pathsFront';
+import { UserLogin } from 'src/app/interfaces/user';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { fieldIsRequired } from 'src/app/shared/utils';
-
-// JSON
-import usersList from 'src/assets/json/users.json';
 
 @Component({
   selector: 'app-login',
@@ -17,9 +15,6 @@ export class LoginComponent implements OnInit {
   PATHS = PATHS_FRONT;
   loginForm: FormGroup;
   dataLoading: boolean = false;
-  users: any = usersList;
-  unregistered: boolean = false;
-  invalid: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -40,7 +35,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser(): void {
-    const userLogin = this.loginForm.value;
+    const userLogin: UserLogin = this.loginForm.value;
     this.loginForm.disable();
     this.dataLoading = true;
     this.authService.login(userLogin).subscribe(
