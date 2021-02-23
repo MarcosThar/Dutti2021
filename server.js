@@ -21,6 +21,7 @@ const onReadFile = (err, data, user, res, callback) => {
 
 const post = (req, res, callback) => {
     // si ya se han obtenido los valores del archivo users.json no se vuelven a pedir
+    // en un entorno de produccion habria que obtenerlo siempre actualizado
     setTimeout(() => { // Se incluye timeout para simular la latencia del servidor y poder visualizar el spinner
         
         if (!users.length) {
@@ -60,8 +61,15 @@ const callbackRegisterUser = (user, res) => {
 }
 
 const callbackLoginUser = (user, res) => {
-    if (userIsValid(user)) {
-        res.status(200).send({ msg: 'User is valid' })
+    const userFound = userIsValid(user)
+    if (userFound) {
+        const userToSend = {...userFound, password: undefined}
+        // Si borramos la propiedad sin copiar el objeto no podremos volver a hacer login 
+        // con en ese usuario hasta que reiniciamos el servidor debido a que el delete
+        // se estaria haciendo sobre la referencia del objeto cacheado usado para validar los usuarios
+        // en un entorno de produccion habria que obtenerlo siempre actualizado
+        // por lo que esto no ocurriria
+        res.status(200).send({user: userToSend, msg: 'User is valid' })
     } else {
         res.status(401).send({ msg: 'User or password are incorrect' })
     }

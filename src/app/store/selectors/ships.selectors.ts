@@ -1,7 +1,8 @@
 import { createSelector } from "@ngrx/store";
+import { Ship } from "src/app/interfaces/ship";
 
 export const selectShips = createSelector(
-  (state: any) => state.ships,
+  (state: {ships:Ship[]}) => state.ships,
   (ships) => ships
 );
  

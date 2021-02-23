@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/interfaces/user';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { fieldIsInvalid, fieldIsRequired, fieldIsTouched } from 'src/app/shared/utils';
 
@@ -43,7 +44,7 @@ export class RegisterComponent implements OnInit {
   }
   registerUser(): void {
     this.dataLoading = true;
-    const userData = this.registerForm.value;
+    const userData: User = this.registerForm.value;
     this.registerForm.disable()
     this.authService.register(userData).subscribe(
       () => this.router.navigate(['']))

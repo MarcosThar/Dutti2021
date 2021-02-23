@@ -15,7 +15,7 @@ export class PrincipalComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  logout = () => {
+  logout = (): void => {
     this.authService.logout()
   }
 
