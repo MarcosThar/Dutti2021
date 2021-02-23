@@ -39,11 +39,8 @@ Navigate to `http://localhost:4200/`.
 # TAREAS PENDIENTES
 - Revisar HTML
 - Revisar tipado
-- crear GUARD
 - Aplicar i18n
 - Faltan interfaces para login, store, ships
-- Eliminar jQuery de ships.component y revisar si esta en algun sitio mas, y crearModal
-- Eliminar principal component
 - Crear constantes para los path de front
 - Faltan tareas 5 y 7
 
