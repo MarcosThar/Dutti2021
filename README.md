@@ -37,10 +37,10 @@ Navigate to `http://localhost:4200/`.
 
 
 # TAREAS PENDIENTES
-- Revisar HTML
-- Aplicar i18n
 - Revisar tipado
 - Faltan interfaces para login, store, ships
 - Crear constantes para los path de front
+- Revisar HTML
+- Aplicar i18n
 - Faltan tareas 5 y 7
 

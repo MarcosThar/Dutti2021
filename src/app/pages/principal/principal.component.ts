@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PATHS_FRONT } from 'src/app/constants/pathsFront';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-principal',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./principal.component.scss']
 })
 export class PrincipalComponent implements OnInit {
-
-  constructor() { }
+  PATHS = PATHS_FRONT;
+  
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+  }
+
+  logout = () => {
+    this.authService.logout()
   }
 
 }
