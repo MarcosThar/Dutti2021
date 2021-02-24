@@ -14,6 +14,7 @@ import { defer, of } from 'rxjs';
 import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PrincipalComponent } from '../principal/principal.component';
+import { PATHS_FRONT } from 'src/app/constants/pathsFront';
 
 
 
@@ -35,7 +36,6 @@ const okResponseLogin = {
     "firstName": "Paco",
     "lastName": "Ruiz",
     "username": "paco",
-    "password": "Paco012",
     "email": "paco@paco.es"
   },
   msg: 'User is valid'
@@ -87,12 +87,11 @@ describe('LoginComponent', () => {
     expect(component.loginForm).toBeTruthy();
   });
   it("loginUser should navigate to principal", () => {
-    const response: [] = [];
     component.loginForm.setValue(userMock)
     spyOn(authService, 'login').and.returnValue(of(okResponseLogin))
-    const spy = spyOn(router, 'navigate').and.callFake(() => { });
+    const spy = spyOn(router, 'navigate');
     component.loginUser();
-    expect(spy).toHaveBeenCalledWith(['principal']);
+    expect(spy).toHaveBeenCalledWith([PATHS_FRONT.principal]);
   });
 
   it('field password IsRequired should return false', () => {
@@ -129,7 +128,6 @@ describe('LoginComponent', () => {
   });
 
   it("loginUser should keep the same state", () => {
-    const response: [] = []
     fixture.detectChanges()
     expect(component.loginForm.enabled).toBeTruthy();
     component.loginForm.setValue(userMock)
@@ -139,7 +137,7 @@ describe('LoginComponent', () => {
     // Al estar dentro del operador add la activacion del formulario se realiza de manera asincrona 
     // y sin el setTimeOut no le da tiempo a cambiar el estado del formulario antes de la comprobacion en el expect
     // lo que nos permite hacer una doble comprobacion del estado del formulario durante la ejecucion y tras ella 
-    // Podemos ver si hacerlo mejor y evitar el setTimeOut pero en este creo que puede estar aportando
+    // Podemos ver si hacerlo mejor y evitar el setTimeOut pero en este creo que puede estar aportando valor al test
     expect(!component.loginForm.enabled).toBeTruthy();
     setTimeout(() =>
       expect(component.loginForm.enabled).toBeTruthy())

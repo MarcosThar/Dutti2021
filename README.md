@@ -29,7 +29,16 @@
 # Getting Started 
 
 `npm i`  for install
+
 Run `npm run start` for a dev server. 
+Navigate to `http://localhost:4200/`.
+
+
+Run `npm run api-serve` for a auth api server. 
+Running on `http://localhost:3000/`.
+
+
+Run `npm run start-with-server` for a dev server and auth api serve. 
 Navigate to `http://localhost:4200/`.
 
 
@@ -37,10 +46,6 @@ Navigate to `http://localhost:4200/`.
 
 
 # TAREAS PENDIENTES
-- Revisar tipado
-- Faltan interfaces para login, store, ships
-- Crear constantes para los path de front
-- Revisar HTML
 - Aplicar i18n
 - Faltan tareas 5 y 7
 
