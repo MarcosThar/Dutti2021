@@ -11,35 +11,35 @@ import { BehaviorSubject, of } from 'rxjs';
 describe('ShipsComponent', () => {
   let component: ShipsComponent;
   let fixture: ComponentFixture<ShipsComponent>;
-  const serviceMock ={
-    getShips:function(){ return  new BehaviorSubject([])}
+  // const serviceMock ={
+  //   getShips:function(){ return  new BehaviorSubject([])}
     
-  }
+  // }
 
   
-  @Component({
-    selector: 'ships-details',
-    template: '<p>Mock Ship Details</p>'
-  })
-  class MockShipDetails {
-    @Input() dataList:any;
-  }
+  // @Component({
+  //   selector: 'ships-details',
+  //   template: '<p>Mock Ship Details</p>'
+  // })
+  // class MockShipDetails {
+  //   @Input() dataList:any;
+  // }
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ShipsComponent,MockShipDetails ],
-      providers:[
-        {provide: ShipsService, useValue: serviceMock} 
-      ]
-    })
-    .compileComponents();
-  }));
+  // beforeEach(waitForAsync(() => {
+  //   TestBed.configureTestingModule({
+  //     declarations: [ ShipsComponent,MockShipDetails ],
+  //     providers:[
+  //       {provide: ShipsService, useValue: serviceMock} 
+  //     ]
+  //   })
+  //   .compileComponents();
+  // }));
 
-  beforeEach(() => {
-    // fixture = TestBed.createComponent(ShipsComponent);
-    // component = fixture.componentInstance;
-    // fixture.detectChanges();
-  });
+  // beforeEach(() => {
+  //   // fixture = TestBed.createComponent(ShipsComponent);
+  //   // component = fixture.componentInstance;
+  //   // fixture.detectChanges();
+  // });
 
   it('should create', () => {
     expect(true).toBeTruthy();

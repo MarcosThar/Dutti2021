@@ -147,9 +147,9 @@ fdescribe('RegisterComponent', () => {
     component.registerForm.controls.password.setValue('Marcos01')
     expect(component.fieldIsInvalid('password')).toBeFalsy();
   });
-  it('field password IsInvalid should return true', () => {
+  it('field password IsInvalid should return true when value is invalid', () => {
     component.registerForm.controls.password.markAsTouched()
-    component.registerForm.controls.password.setValue('a')
+    component.registerForm.controls.password.setValue('aasdfg')
     expect(component.fieldIsInvalid('password')).toBeTruthy();
   });
 
@@ -189,6 +189,11 @@ fdescribe('RegisterComponent', () => {
     component.registerForm.controls.email.setValue('massimo@dutti.com')
     expect(component.fieldIsInvalid('email')).toBeFalsy();
   });
+  it('field email IsInvalid should return true when value is invalid', () => {
+    component.registerForm.controls.email.markAsTouched()
+    component.registerForm.controls.email.setValue('massimo@dutti')
+    expect(component.fieldIsInvalid('email')).toBeTruthy();
+  });
   it('field email IsInvalid should return true', () => {
     component.registerForm.controls.email.markAsTouched()
     component.registerForm.controls.email.setValue('a')
@@ -220,7 +225,7 @@ fdescribe('RegisterComponent', () => {
     // Al estar dentro del operador add la activacion del formulario se realiza de manera asincrona 
     // y sin el setTimeOut no le da tiempo a cambiar el estado del formulario antes de la comprobacion en el expect
     // lo que nos permite hacer una doble comprobacion del estado del formulario durante la ejecucion y tras ella 
-    // Podemos ver si hacerlo mejor y evitar el setTimeOut pero en este creo que puede estar aportando
+    // Podemos ver si hacerlo mejor y evitar el setTimeOut pero en este creo que puede estar aportando valor al test
     expect(!component.registerForm.enabled).toBeTruthy();
     setTimeout(() =>
       expect(component.registerForm.enabled).toBeTruthy())

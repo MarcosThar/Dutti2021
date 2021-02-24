@@ -89,7 +89,7 @@ describe('LoginComponent', () => {
   it("loginUser should navigate to principal", () => {
     component.loginForm.setValue(userMock)
     spyOn(authService, 'login').and.returnValue(of(okResponseLogin))
-    const spy = spyOn(router, 'navigate').and.callFake(() => { });
+    const spy = spyOn(router, 'navigate');
     component.loginUser();
     expect(spy).toHaveBeenCalledWith([PATHS_FRONT.principal]);
   });
@@ -137,7 +137,7 @@ describe('LoginComponent', () => {
     // Al estar dentro del operador add la activacion del formulario se realiza de manera asincrona 
     // y sin el setTimeOut no le da tiempo a cambiar el estado del formulario antes de la comprobacion en el expect
     // lo que nos permite hacer una doble comprobacion del estado del formulario durante la ejecucion y tras ella 
-    // Podemos ver si hacerlo mejor y evitar el setTimeOut pero en este creo que puede estar aportando
+    // Podemos ver si hacerlo mejor y evitar el setTimeOut pero en este creo que puede estar aportando valor al test
     expect(!component.loginForm.enabled).toBeTruthy();
     setTimeout(() =>
       expect(component.loginForm.enabled).toBeTruthy())
