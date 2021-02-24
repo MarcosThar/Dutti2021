@@ -46,5 +46,5 @@ Navigate to `http://localhost:4200/`.
 - Como otra posible optimizacion para la casuistica numero 7, seria establecer un balanceador de carga entre mas servidores
 
 # TAREAS PENDIENTES
-- Aplicar i18n , esta tarea me la puse yo mismo pero me ha sido imposible 
+- Aplicar i18n , esta tarea me la puse yo mismo pero no me ha dado tiempo a implementarlo
 

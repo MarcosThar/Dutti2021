@@ -1,7 +1,7 @@
-<nav class="navbar navbar-dark principalHeader">
-    <div class="dropdown">
-        <i class="fas fa-bars" id="dropdownMenuButton" data-toggle="dropdown"></i>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+<nav class="navbar principalHeader">
+    <div class="dropdown {{show ? 'show': ''}}">
+        <i class="fas fa-bars" (click)="toggleMenu()" ></i>
+        <div class="dropdown-menu {{show ? 'show': ''}}" >
             <a class="dropdown-item" [routerLink]="PATHS.ships">Ships</a>
             <a class="dropdown-item" [routerLink]="PATHS.pageOne">Page One</a>
             <a class="dropdown-item" [routerLink]="PATHS.pageTwo">Page Two</a>
