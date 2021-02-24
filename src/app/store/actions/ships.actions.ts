@@ -12,7 +12,7 @@ export const requestGetShips = createAction(
  
 export const setShips = createAction(
   SET_SHIPS,
-  props<{ ships:Ship[] }>()
+  props<{ ships:Ship[], page }>()
 );
  
 export const cleanShips = createAction(

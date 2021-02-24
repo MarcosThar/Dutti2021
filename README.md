@@ -47,5 +47,4 @@ Navigate to `http://localhost:4200/`.
 
 # TAREAS PENDIENTES
 - Aplicar i18n
-- Faltan tareas 5 y 7
 

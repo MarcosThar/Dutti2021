@@ -20,6 +20,6 @@ export class ShipsService {
   constructor( private http: HttpClient ) {}
 
   getShips(page?: number): Observable<ShipPage>{
-    return this.http.get<ShipPage>(`${this.url}${page || 1}`)
+    return this.http.get<ShipPage>(`${this.url}${page}`)
   }
 }

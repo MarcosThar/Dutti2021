@@ -24,7 +24,7 @@ export class ShipsComponent implements OnInit {
   constructor( private store: Store) {}
 
   ngOnInit(): void {
-    this.store.dispatch(requestGetShips({}))
+    this.store.dispatch(requestGetShips({page: this.config.currentPage}))
 
   }
   
